@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Marwan Nofal Portfolio - Design System */
+
+@layer base {
+  :root {
+    /* ============================
+     * Light theme – Soft Luxury
+     * (Beige / Gold / Charcoal)
+     * ============================ */
+
+    /* Base colors (light) */
+    --background: 0 0% 96%;          /* #F4F4F4 – accent as page bg */
+    --foreground: 0 0% 11%;          /* #1C1C1C – soft black text */
+
+    --card: 0 0% 100%;               /* white cards */
+    --card-foreground: 0 0% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 11%;
+
+    /* Brand */
+    --primary: 31 33% 63%;           /* #BFA181 – muted gold */
+    --primary-foreground: 0 0% 10%;  /* dark text on gold */
+
+    --secondary: 35 30% 76%;         /* #D4C5B0 – warm beige */
+    --secondary-foreground: 0 0% 11%;
+
+    --muted: 35 20% 88%;             /* softer beige / border bg */
+    --muted-foreground: 0 0% 30%;
+
+    --accent: 0 0% 96%;              /* #F4F4F4 – light gray */
+    --accent-foreground: 0 0% 11%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders / inputs / focus */
+    --border: 35 18% 85%;            /* warm light border */
+    --input: 35 18% 85%;
+    --ring: 31 33% 63%;              /* gold ring */
+
+    --radius: 0.75rem;
+
+    /* Gradients – light */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(31 33% 63%) 0%,
+      hsl(35 30% 76%) 40%,
+      hsl(0 0% 96%) 100%
+    );
+
+    --gradient-subtle: linear-gradient(
+      180deg,
+      hsl(0 0% 96%) 0%,
+      hsl(35 30% 94%) 100%
+    );
+
+    --gradient-card: linear-gradient(
+      145deg,
+      hsl(0 0% 100%) 0%,
+      hsl(35 30% 95%) 100%
+    );
+
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(31 33% 63% / 0.18) 0%,
+      hsl(35 30% 76% / 0.16) 40%,
+      hsl(0 0% 96%) 100%
+    );
+
+    /* Shadows – soft & elegant */
+    --shadow-sm: 0 1px 2px hsl(35 20% 80% / 0.7);
+    --shadow-md: 0 4px 6px -1px hsl(35 20% 80% / 0.75),
+                 0 2px 4px -2px hsl(35 20% 80% / 0.7);
+    --shadow-lg: 0 10px 15px -3px hsl(35 20% 80% / 0.8),
+                 0 4px 6px -4px hsl(35 20% 80% / 0.75);
+    --shadow-xl: 0 20px 25px -5px hsl(35 20% 80% / 0.9),
+                 0 8px 10px -6px hsl(35 20% 80% / 0.85);
+    --shadow-glow: 0 0 40px hsl(31 33% 63% / 0.28);
+    --shadow-card-hover: 0 20px 40px -15px hsl(31 33% 63% / 0.3);
+
+    /* Sidebar (light) */
+    --sidebar-background: 0 0% 96%;
+    --sidebar-foreground: 0 0% 11%;
+    --sidebar-primary: 31 33% 63%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 35 30% 90%;
+    --sidebar-accent-foreground: 0 0% 11%;
+    --sidebar-border: 35 18% 85%;
+    --sidebar-ring: 31 33% 63%;
+  }
+
+  .dark {
+    /* ============================
+     * Dark theme – Soft Black / Gold
+     * (exact palette you gave)
+     * ============================ */
+
+    --background: 0 0% 11%;          /* #1C1C1C – soft black */
+    --foreground: 0 0% 96%;          /* #F4F4F4 – light gray */
+
+    --card: 0 0% 13%;                /* #222222-ish */
+    --card-foreground: 0 0% 96%;
+
+    --popover: 0 0% 13%;
+    --popover-foreground: 0 0% 96%;
+
+    /* Brand */
+    --primary: 31 33% 63%;           /* #BFA181 – muted gold */
+    --primary-foreground: 0 0% 8%;   /* dark text when used on light bg */
+
+    --secondary: 35 30% 76%;         /* #D4C5B0 – warm beige */
+    --secondary-foreground: 0 0% 8%;
+
+    --muted: 0 0% 18%;               /* darker section bg */
+    --muted-foreground: 0 0% 80%;
+
+    --accent: 0 0% 96%;              /* #F4F4F4 – accent light gray */
+    --accent-foreground: 0 0% 8%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 96%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 31 33% 63%;
+
+    /* Gradients – dark */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(31 33% 63%) 0%,
+      hsl(35 30% 76%) 40%,
+      hsl(0 0% 96%) 100%
+    );
+
+    --gradient-subtle: linear-gradient(
+      180deg,
+      hsl(0 0% 11%) 0%,
+      hsl(0 0% 15%) 100%
+    );
+
+    --gradient-card: linear-gradient(
+      145deg,
+      hsl(0 0% 13%) 0%,
+      hsl(0 0% 18%) 100%
+    );
+
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(31 33% 63% / 0.25) 0%,
+      hsl(35 30% 76% / 0.22) 40%,
+      hsl(0 0% 11%) 100%
+    );
+
+    /* Shadows – deep & rich */
+    --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.6);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.65);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.7);
+    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.8);
+    --shadow-glow: 0 0 40px hsl(31 33% 63% / 0.4);
+    --shadow-card-hover: 0 20px 40px -15px hsl(0 0% 0% / 0.9);
+
+    /* Sidebar (dark) */
+    --sidebar-background: 0 0% 11%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 31 33% 63%;
+    --sidebar-primary-foreground: 0 0% 8%;
+    --sidebar-accent: 0 0% 13%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 31 33% 63%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .gradient-bg {
+    background-image: var(--gradient-primary);
+  }
+
+  .gradient-border {
+    position: relative;
+    background: hsl(var(--card));
+    border-radius: var(--radius);
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: var(--gradient-primary);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .card-elevated {
+    @apply bg-card rounded-xl;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px);
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .container-narrow {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-up-delay-1 {
+    animation: fadeUp 0.6s ease-out 0.1s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-delay-2 {
+    animation: fadeUp 0.6s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-delay-3 {
+    animation: fadeUp 0.6s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted)) 0%,
+    hsl(var(--background)) 50%,
+    hsl(var(--muted)) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
