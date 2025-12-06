@@ -3,23 +3,27 @@ import { Code2, Rocket, Users, Zap } from "lucide-react";
 const highlights = [
   {
     icon: Code2,
-    title: "Clean Code",
-    description: "I write maintainable, well-documented code that scales.",
+    title: "Backend First Mindset",
+    description:
+      "I design reliable APIs, database schemas, and background jobs that keep products stable in production.",
   },
   {
     icon: Rocket,
-    title: "Fast Delivery",
-    description: "Agile methodologies ensure timely project completion.",
+    title: "Production-Ready Systems",
+    description:
+      "From Dockerized services to Nginx on Linux, I ship code that is ready to run on real servers, not just localhost.",
   },
   {
     icon: Users,
-    title: "Collaboration",
-    description: "I work seamlessly with teams and stakeholders.",
+    title: "Business-Focused Solutions",
+    description:
+      "I work closely with stakeholders to translate real requirements into maintainable backend features and integrations.",
   },
   {
     icon: Zap,
-    title: "Performance",
-    description: "Optimized solutions that deliver exceptional speed.",
+    title: "Performance & Observability",
+    description:
+      "I care about query performance, caching, and clear logs so issues are easy to detect, debug, and fix.",
   },
 ];
 
@@ -35,28 +39,37 @@ export function About() {
                 About Me
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-balance">
-                Crafting Digital Experiences That{" "}
-                <span className="gradient-text">Make an Impact</span>
+                Backend Engineer Focused on{" "}
+                <span className="gradient-text">Real-World Systems</span>
               </h2>
             </div>
 
             <div className="space-y-4 text-muted-foreground text-lg">
               <p>
-                I'm a passionate Full-Stack Developer based in Amman, Jordan, with a deep love 
-                for building web applications that solve real-world problems. With expertise 
-                spanning from backend systems to polished user interfaces, I bring ideas to 
-                life through code.
+                I'm a backend engineer based in Amman, Jordan, with hands-on
+                experience building real products — not just tutorials.
+                I work mainly with Python (Django &amp; FastAPI), .NET/C#, and
+                PHP/Moodle, and I’m comfortable owning everything from the
+                database layer to the API and integrations that sit on top of it.
               </p>
+
               <p>
-                My journey in software development has led me through diverse projects—from 
-                enterprise learning platforms built on Moodle to high-performance APIs with 
-                Django and FastAPI. I thrive on challenges that push me to learn new 
-                technologies and deliver solutions that exceed expectations.
+                My work spans custom e-learning platforms, HR and internal
+                tools, financial and reporting modules, and integrations with
+                third-party services. I enjoy taking vague or complex
+                requirements and turning them into clear database schemas, clean
+                backend logic, and well-documented REST APIs that other teams
+                can rely on.
               </p>
+
               <p>
-                When I'm not coding, you'll find me exploring new frameworks, contributing 
-                to open-source projects, or mentoring aspiring developers. I believe in the 
-                power of technology to transform businesses and improve lives.
+                My toolbox includes Linux, Docker, Git, Postman, Azure,
+                MongoDB, MS SQL, MySQL, PostgreSQL, and Redis. I care about
+                clean code, traceable logs, and systems that are easy to
+                maintain and extend. Whether it’s designing a new API,
+                debugging a production issue, or improving performance, I’m
+                happiest when I’m deep in the backend making things work
+                smoothly.
               </p>
             </div>
           </div>

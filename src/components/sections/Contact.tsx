@@ -1,22 +1,34 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { 
-  Mail, 
-  Linkedin, 
-  Github, 
-  Twitter,
+import {
+  Mail,
+  Linkedin,
+  Github,
   Send,
-  Download,
   MapPin,
-  Calendar
+  Calendar,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+// 👇 Comes from .env.local  →  VITE_WEB3FORMS_ACCESS_KEY=your_key_here
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string;
+
 const socialLinks = [
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Github, label: "GitHub", href: "#" },
-  { icon: Twitter, label: "Twitter", href: "#" },
-  { icon: Mail, label: "Email", href: "mailto:hello@marwannofal.dev" },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/marwannofal",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    href: "https://github.com/marwannofal",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    href: "mailto:marwannofal64@gmail.com",
+  },
 ];
 
 const projectTypes = [
@@ -52,29 +64,81 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    if (!WEB3FORMS_ACCESS_KEY) {
+      console.error("WEB3FORMS_ACCESS_KEY is missing. Check your .env.local");
+      toast({
+        title: "Configuration error",
+        description: "Contact form is not configured correctly. Please try again later.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
 
-    toast({
-      title: "Message sent successfully!",
-      description: "Thank you for reaching out. I'll get back to you within 24-48 hours.",
-    });
+    try {
+      const formDataToSend = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        name: formData.name,
+        email: formData.email,
+        company: formData.company || "N/A",
+        projectType: formData.projectType,
+        budget: formData.budget,
+        message: formData.message,
+        from_page: "Portfolio Contact Section",
+      };
 
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      projectType: "",
-      budget: "",
-      message: "",
-    });
-    setIsSubmitting(false);
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formDataToSend),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        toast({
+          title: "Message sent successfully!",
+          description:
+            "Thank you for reaching out. I'll get back to you within 24–48 hours.",
+        });
+
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          projectType: "",
+          budget: "",
+          message: "",
+        });
+      } else {
+        console.error("Web3Forms error:", data);
+        toast({
+          title: "Something went wrong",
+          description: "Your message could not be sent. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Network error",
+        description: "Please check your connection and try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
@@ -91,13 +155,14 @@ export function Contact() {
                 Get in Touch
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                Let's Build{" "}
+                Let&apos;s Build{" "}
                 <span className="gradient-text">Something Great</span>
               </h2>
               <p className="text-muted-foreground text-lg">
-                Ready to start your next project? Have a question about my services? 
-                I'd love to hear from you. Fill out the form and I'll get back to 
-                you within 24-48 hours.
+                Ready to start your next project? Have a question about my
+                backend services or integrations? I&apos;d love to hear from
+                you. Fill out the form and I&apos;ll get back to you within
+                24–48 hours.
               </p>
             </div>
 
@@ -121,20 +186,18 @@ export function Contact() {
                   <a
                     key={social.label}
                     href={social.href}
-                    className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                    className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center
+                   text-foreground/90 hover:text-primary hover:bg-primary/10
+                   transition-colors border border-border/60"
                     aria-label={social.label}
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     <social.icon className="w-5 h-5" />
                   </a>
                 ))}
               </div>
             </div>
-
-            {/* Download CV */}
-            <Button variant="hero-outline" className="w-full sm:w-auto">
-              <Download className="w-4 h-4" />
-              Download Resume
-            </Button>
           </div>
 
           {/* Contact Form */}
@@ -146,7 +209,10 @@ export function Contact() {
               <div className="grid sm:grid-cols-2 gap-4">
                 {/* Name */}
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-foreground">
+                  <label
+                    htmlFor="name"
+                    className="text-sm font-medium text-foreground"
+                  >
                     Full Name *
                   </label>
                   <input
@@ -157,13 +223,16 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                    placeholder="John Doe"
+                    placeholder="Your name"
                   />
                 </div>
 
                 {/* Email */}
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-foreground">
+                  <label
+                    htmlFor="email"
+                    className="text-sm font-medium text-foreground"
+                  >
                     Email Address *
                   </label>
                   <input
@@ -174,15 +243,19 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                    placeholder="john@company.com"
+                    placeholder="you@company.com"
                   />
                 </div>
               </div>
 
               {/* Company */}
               <div className="space-y-2">
-                <label htmlFor="company" className="text-sm font-medium text-foreground">
-                  Company <span className="text-muted-foreground">(optional)</span>
+                <label
+                  htmlFor="company"
+                  className="text-sm font-medium text-foreground"
+                >
+                  Company{" "}
+                  <span className="text-muted-foreground">(optional)</span>
                 </label>
                 <input
                   type="text"
@@ -198,7 +271,10 @@ export function Contact() {
               <div className="grid sm:grid-cols-2 gap-4">
                 {/* Project Type */}
                 <div className="space-y-2">
-                  <label htmlFor="projectType" className="text-sm font-medium text-foreground">
+                  <label
+                    htmlFor="projectType"
+                    className="text-sm font-medium text-foreground"
+                  >
                     Project Type *
                   </label>
                   <select
@@ -220,7 +296,10 @@ export function Contact() {
 
                 {/* Budget */}
                 <div className="space-y-2">
-                  <label htmlFor="budget" className="text-sm font-medium text-foreground">
+                  <label
+                    htmlFor="budget"
+                    className="text-sm font-medium text-foreground"
+                  >
                     Budget Range *
                   </label>
                   <select
@@ -243,7 +322,10 @@ export function Contact() {
 
               {/* Message */}
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-foreground">
+                <label
+                  htmlFor="message"
+                  className="text-sm font-medium text-foreground"
+                >
                   Project Details *
                 </label>
                 <textarea

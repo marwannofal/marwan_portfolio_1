@@ -9,10 +9,9 @@ const footerLinks = {
     { label: "Contact", href: "#contact" },
   ],
   social: [
-    { label: "LinkedIn", href: "#" },
-    { label: "GitHub", href: "#" },
-    { label: "Twitter", href: "#" },
-    { label: "Email", href: "mailto:hello@marwannofal.dev" },
+    { label: "LinkedIn", href: "https://linkedin.com/in/marwannofal" },
+    { label: "GitHub", href: "https://github.com/marwannofal" },
+    { label: "Email", href: "mailto:marwannofal64@gmail.com" },
   ],
 };
 
@@ -36,8 +35,10 @@ export function Footer() {
               </span>
             </a>
             <p className="text-muted-foreground max-w-sm">
-              Full-Stack Developer & Software Engineer based in Amman, Jordan. 
-              Building robust, scalable web applications for forward-thinking businesses.
+              Backend Engineer &amp; Software Developer based in Amman, Jordan.
+              I build reliable backends, APIs, and integrations using Python/Django,
+              FastAPI, .NET/C#, PHP/Moodle, and modern tooling on top of Linux,
+              Docker, and SQL/NoSQL databases.
             </p>
           </div>
 
@@ -80,9 +81,10 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             © {new Date().getFullYear()} Marwan Nofal. Built with{" "}
-            <Heart className="w-4 h-4 text-destructive inline" /> in Jordan.
+            <Heart className="w-4 h-4 text-destructive inline" /> on Linux &amp; Docker
+            from Amman, Jordan.
           </p>
-          
+
           <button
             onClick={scrollToTop}
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
