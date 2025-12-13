@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Download, MapPin } from "lucide-react";
 
 export function Hero() {
+  console.log("Hero PROD VERSION 3");
   return (
     <section
       className="
