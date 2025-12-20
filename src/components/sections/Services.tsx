@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { 
-  Code2, 
-  Plug, 
-  GraduationCap, 
+import {
+  Code2,
+  Plug,
+  GraduationCap,
   Gauge,
   ArrowRight
 } from "lucide-react";
@@ -10,27 +10,51 @@ import {
 const services = [
   {
     icon: Code2,
-    title: "Custom Web Development",
-    description: "End-to-end development of web applications tailored to your business needs. From architecture design to deployment, I build solutions that scale with your growth.",
-    features: ["Full-Stack Development", "API Design & Integration", "Database Architecture", "Cloud Deployment"],
+    title: "Backend & API Development",
+    description:
+      "Designing and implementing solid backend systems that your product can rely on every day. From authentication and business logic to clean, well-documented REST APIs.",
+    features: [
+      "RESTful API design & implementation",
+      "Authentication & authorization",
+      "Business logic & domain modelling",
+      "Integration-ready backend architecture",
+    ],
   },
   {
     icon: Plug,
-    title: "API & Backend Development",
-    description: "High-performance APIs and backend systems that power your applications. RESTful services, microservices architecture, and seamless third-party integrations.",
-    features: ["RESTful APIs", "GraphQL", "Microservices", "Third-Party Integrations"],
+    title: "Systems Integration & Automation",
+    description:
+      "Connecting your systems so they actually talk to each other. I work with XML/JSON APIs, payment gateways, and internal tools to automate the boring stuff.",
+    features: [
+      "Third-party API integrations",
+      "XML ↔ JSON backend services",
+      "Payment gateway integration",
+      "Sync between internal systems",
+    ],
   },
   {
     icon: GraduationCap,
-    title: "Moodle & LMS Solutions",
-    description: "Specialized expertise in Moodle customization and e-learning platform development. Custom plugins, themes, and enterprise-grade learning solutions.",
-    features: ["Custom Plugin Development", "Theme Customization", "Migration Services", "Performance Optimization"],
+    title: "Moodle & LMS Platforms",
+    description:
+      "Hands-on experience building real learning platforms: plugins, reports, themes, and custom flows for students, teachers, and admins on top of Moodle.",
+    features: [
+      "Custom Moodle plugin development",
+      "Financial & reporting dashboards",
+      "Role-based flows (student/parent/teacher/admin)",
+      "Performance tuning for large course catalogs",
+    ],
   },
   {
     icon: Gauge,
-    title: "Performance & Optimization",
-    description: "Comprehensive audits and optimization services to enhance your application's speed, scalability, and user experience. Debugging and code refactoring.",
-    features: ["Performance Audits", "Code Refactoring", "Database Optimization", "Security Hardening"],
+    title: "Intranets, Portals & Optimization",
+    description:
+      "Improving existing systems—whether it’s a SharePoint intranet or a custom web app. I focus on performance, structure, and maintainability so teams can move faster.",
+    features: [
+      "SharePoint & internal portal development",
+      "Performance & query optimization",
+      "Code review & refactoring",
+      "Debugging and production issue analysis",
+    ],
   },
 ];
 
@@ -48,14 +72,15 @@ export function Services() {
             <span className="gradient-text">Help You</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Whether you're a startup looking to build your MVP or an enterprise 
-            seeking to optimize existing systems, I offer tailored solutions to meet your goals.
+            I focus on backends, integrations, and learning platforms. Whether you
+            need a reliable API, a custom LMS, or a faster internal system, I can
+            help you ship something stable, understandable, and maintainable.
           </p>
         </div>
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 gap-6">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
               key={service.title}
               className="card-elevated p-6 md:p-8 space-y-5 group"
@@ -99,11 +124,12 @@ export function Services() {
         <div className="mt-16 text-center">
           <div className="inline-block gradient-border p-8 md:p-12 rounded-2xl bg-card">
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Have a project in mind?
+              Have a backend or platform in mind?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              Let's discuss how I can help bring your vision to life. I'm always excited 
-              to take on new challenges and collaborate with ambitious teams.
+              Tell me about your system, your users, and your constraints. We can
+              work together to design a backend, LMS, or internal portal that
+              actually fits how your team works.
             </p>
             <Button variant="hero" size="lg" asChild>
               <a href="#contact">

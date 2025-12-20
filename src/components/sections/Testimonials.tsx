@@ -1,25 +1,25 @@
 import { Quote, Star } from "lucide-react";
 
 const testimonials = [
-  {
-    quote: "Marwan delivered our learning platform ahead of schedule and exceeded all our expectations. His expertise in Moodle customization transformed how we train our global workforce.",
-    author: "Sarah Mitchell",
-    role: "Head of Learning & Development",
-    company: "TechGlobal Inc.",
+    {
+    quote: "Marwan is a fast-learning, brilliant, and highly dedicated developer. His combination of curiosity, smart thinking, and motivation makes him an exceptional asset. I fully recommend him for any development role and I’m confident he’ll continue to advance and excel.",
+    author: "Ahmed Dukhan",
+    role: "CTO",
+    company: "Mashrooan company",
     rating: 5,
   },
   {
-    quote: "Working with Marwan was a game-changer for our startup. He built a scalable API that handles millions of requests with ease. His code quality and documentation are exceptional.",
-    author: "Ahmed Hassan",
-    role: "CTO",
-    company: "DataFlow Solutions",
+    quote: "Marwan delivered our learning platform ahead of schedule and exceeded all our expectations. His expertise in Moodle customization transformed how we train our global workforce.",
+    author: "Yazan Abdo",
+    role: "Head of Learning & Development",
+    company: "Classvera Inc.",
     rating: 5,
   },
   {
     quote: "Marwan's attention to detail and problem-solving skills are remarkable. He not only fixed our performance issues but also implemented best practices that improved our entire development workflow.",
-    author: "Lisa Chen",
-    role: "Engineering Manager",
-    company: "HealthTech Pro",
+    author: "Suzan Al-shobaki",
+    role: "quality control Engineer",
+    company: "King Hussein Cancer Center",
     rating: 5,
   },
 ];
@@ -38,7 +38,7 @@ export function Testimonials() {
             <span className="gradient-text">Say About Me</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Don't just take my word for it—here's what some of my clients 
+            Don't just take my word for it—here's what some of my clients
             have to say about working with me.
           </p>
         </div>

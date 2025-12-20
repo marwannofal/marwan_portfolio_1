@@ -1,8 +1,8 @@
 import { Badge } from "@/components/ui/badge";
-import { 
-  Server, 
-  Layout, 
-  Database, 
+import {
+  Server,
+  Layout,
+  Database,
   Settings,
   Code,
   Globe
@@ -12,34 +12,68 @@ const skillCategories = [
   {
     icon: Server,
     title: "Backend Development",
-    description: "Building robust server-side applications and APIs that power modern web solutions.",
-    skills: ["PHP", "Moodle", "Django", "FastAPI", ".NET", "Python", "C#"],
+    description:
+      "Designing and implementing backend systems, APIs, and business logic that are reliable, secure, and easy to extend.",
+    skills: [
+      "Python",
+      "Django",
+      "FastAPI",
+      ".NET",
+      "C#",
+      "PHP",
+      "Moodle",
+    ],
   },
   {
     icon: Layout,
-    title: "Frontend Development",
-    description: "Creating responsive, accessible, and performant user interfaces that delight users.",
-    skills: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Tailwind CSS"],
+    title: "Frontend & UI",
+    description:
+      "Building clean, responsive interfaces for dashboards, portals, and admin tools that stay out of the way and let users focus.",
+    skills: [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+    ],
   },
   {
     icon: Database,
-    title: "Databases",
-    description: "Designing efficient data models and optimizing database performance for scalability.",
-    skills: ["MySQL", "MariaDB", "PostgreSQL", "MongoDB", "Redis"],
+    title: "Databases & Caching",
+    description:
+      "Modelling data, writing efficient queries, and keeping things fast and predictable as systems grow.",
+    skills: [
+      "MySQL",
+      "MariaDB",
+      "PostgreSQL",
+      "MongoDB",
+      "MS SQL Server",
+      "Redis",
+    ],
   },
   {
     icon: Settings,
-    title: "DevOps & Tools",
-    description: "Streamlining development workflows with modern tooling and deployment practices.",
-    skills: ["Docker", "Nginx", "Git", "Linux", "CI/CD", "AWS"],
+    title: "DevOps & Tooling",
+    description:
+      "Working close to the metal on Linux servers, containers, deployments, and the tooling that keeps projects shippable.",
+    skills: [
+      "Linux",
+      "Docker",
+      "Nginx",
+      "Git & GitHub",
+      "CI/CD (GitHub Actions)",
+      "Azure",
+      "Postman",
+    ],
   },
 ];
 
 const additionalSkills = [
-  { icon: Code, label: "RESTful APIs" },
-  { icon: Globe, label: "Web Security" },
-  { icon: Server, label: "Microservices" },
-  { icon: Layout, label: "Responsive Design" },
+  { icon: Code,  label: "Moodle Plugin Development" },
+  { icon: Globe, label: "API & System Integrations" },
+  { icon: Server, label: "Performance & Optimization" },
+  { icon: Layout, label: "SharePoint & Intranet Solutions" },
 ];
 
 export function Skills() {
@@ -49,21 +83,22 @@ export function Skills() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <p className="text-sm font-medium text-primary uppercase tracking-wider">
-            Skills & Expertise
+            Skills &amp; Expertise
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             Technologies I{" "}
             <span className="gradient-text">Work With</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            A comprehensive toolkit built over years of hands-on experience, 
-            enabling me to tackle projects of any scale and complexity.
+            A backend-focused toolkit shaped by real projects—e-learning platforms,
+            internal tools, reporting dashboards, and production-ready APIs running in
+            Linux and Docker environments.
           </p>
         </div>
 
         {/* Skills Grid */}
         <div className="grid md:grid-cols-2 gap-6 mb-12">
-          {skillCategories.map((category, index) => (
+          {skillCategories.map((category) => (
             <div
               key={category.title}
               className="card-elevated p-6 md:p-8 space-y-5"
@@ -81,7 +116,7 @@ export function Skills() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <Badge key={skill} variant="skill">

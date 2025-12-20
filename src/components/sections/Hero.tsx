@@ -95,7 +95,7 @@ export function Hero() {
                 <div className="relative w-full h-full rounded-full gradient-border overflow-hidden bg-card">
                   <div className="absolute inset-2 rounded-full overflow-hidden bg-gradient-to-br from-secondary to-muted flex items-center justify-center">
                     <img
-                      src="https://res.cloudinary.com/dcfyjmi9x/image/upload/v1764401956/IMG_4954_bisvap.jpg"
+                      src="https://res.cloudinary.com/dcfyjmi9x/image/upload/c_fill,w_970,h_920,g_auto/v1764401956/IMG_4954_bisvap.jpg"
                       alt="Marwan Nofal"
                       className="w-full h-full object-cover rounded-full"
                     />

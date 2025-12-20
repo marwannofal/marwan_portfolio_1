@@ -81,17 +81,9 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             © {new Date().getFullYear()} Marwan Nofal. Built with{" "}
-            <Heart className="w-4 h-4 text-destructive inline" /> on Linux &amp; Docker
+            <Heart className="w-4 h-4 text-destructive inline" />
             from Amman, Jordan.
           </p>
-
-          <button
-            onClick={scrollToTop}
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
-          >
-            Back to top
-            <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
-          </button>
         </div>
       </div>
     </footer>
