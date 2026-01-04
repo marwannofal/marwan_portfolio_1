@@ -10,7 +10,7 @@ const testimonials = [
   },
   {
     quote: "Marwan delivered our learning platform ahead of schedule and exceeded all our expectations. His expertise in Moodle customization transformed how we train our global workforce.",
-    author: "Yazan Abdo",
+    author: "Abdulrahman rawashdeh",
     role: "Head of Learning & Development",
     company: "Classvera Inc.",
     rating: 5,
