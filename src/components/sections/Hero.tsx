@@ -88,7 +88,6 @@ export function Hero() {
                 className="absolute inset-0 -m-16 border border-dashed border-accent/10 rounded-full animate-spin"
                 style={{ animationDuration: "40s", animationDirection: "reverse" }}
               />
-
               {/* Profile image container */}
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
                 <div className="absolute inset-0 gradient-bg rounded-full opacity-20 blur-2xl animate-pulse-slow" />
